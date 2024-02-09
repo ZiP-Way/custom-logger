@@ -3,6 +3,7 @@ namespace Logger
 	public enum LogTag
 	{
 		System, 
-		GameLoop
+		GameLoop,
+		Test1
 	}
 }
