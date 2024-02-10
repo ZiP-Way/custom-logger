@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Logger.Data;
@@ -27,6 +28,14 @@ namespace Logger.Editor.Utilities
     
     private void BakeTagsEnum(IReadOnlyList<TagData> tagsData)
     {
+      string assetPath = AssetPaths.GetAssetPath(nameof(LogTag), ".cs", " t:Script");
+
+      if (String.IsNullOrWhiteSpace(assetPath))
+      {
+        Log.Error("Can`t bake tags, path is null or empty");
+        return;
+      }
+      
       StringBuilder stringBuilder = new StringBuilder();
       stringBuilder.AppendLine("namespace Logger");
       stringBuilder.AppendLine("{");
@@ -45,8 +54,8 @@ namespace Logger.Editor.Utilities
       stringBuilder.AppendLine("\n\t}");
       stringBuilder.Append("}");
 
-      File.WriteAllText(AssetPaths.LogTagAssetPath, stringBuilder.ToString());
-      AssetDatabase.ImportAsset(AssetPaths.LogTagAssetPath);
+      File.WriteAllText(assetPath, stringBuilder.ToString());
+      AssetDatabase.ImportAsset(assetPath);
     }
   }
 }
