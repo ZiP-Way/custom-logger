@@ -21,33 +21,34 @@ namespace Logger.Types
       _loggerConfigurer = loggerConfigurer;
     }
 
-    public void Log(string message) =>
-      LogManual(LogType.Log, message);
+    public void Log(string message, Object context = null) =>
+      LogManual(LogType.Log, message, context);
 
-    public void Log(LogTag tag, string message) =>
-      LogManual(LogType.Log, tag, message);
+    public void Log(LogTag tag, string message, Object context = null) =>
+      LogManual(LogType.Log, tag, message, context);
 
-    public void LogWarning(string message) =>
-      LogManual(LogType.Warning, message);
+    public void LogWarning(string message, Object context = null) =>
+      LogManual(LogType.Warning, message, context);
 
-    public void LogWarning(LogTag tag, string message) =>
-      LogManual(LogType.Warning, tag, message);
+    public void LogWarning(LogTag tag, string message, Object context = null) =>
+      LogManual(LogType.Warning, tag, message, context);
 
-    public void LogError(string message) =>
-      LogManual(LogType.Error, message);
+    public void LogError(string message, Object context = null) =>
+      LogManual(LogType.Error, message, context);
 
-    public void LogError(LogTag tag, string message) =>
-      LogManual(LogType.Error, tag, message);
+    public void LogError(LogTag tag, string message, Object context = null) =>
+      LogManual(LogType.Error, tag, message, context);
 
-    public void LogManual(LogType logType, string message) =>
-      InternalLogger.Log(logType, message);
+    public void LogManual(LogType logType, object message, Object context = null) => 
+      InternalLogger.Log(logType, message, context);
 
-    public void LogManual(LogType logType, LogTag tag, string message)
+    public void LogManual(LogType logType, LogTag tag, object message , Object context = null)
     {
       if (!_loggerConfigurer.IsTagEnabled(tag))
         return;
-      
-      InternalLogger.Log(logType, _messageFormatter.FormatMessage(tag, message));
+
+      message = _messageFormatter.FormatMessage(tag, message as string);
+      InternalLogger.Log(logType, message, context);
     }
   }
 }

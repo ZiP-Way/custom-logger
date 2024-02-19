@@ -54,26 +54,50 @@ namespace Logger
     public static void Log(string message) =>
       Logger.Log(message);
 
-    public static void Log(LogTag tag, string message) =>
-      LogManual(LogType.Log, tag, message);
+    public static void Log(string message, Object context) => 
+      Logger.Log(message, context);
+
+    public static void Log(LogTag tag, string message) => 
+      Logger.Log(tag, message);
+    
+    public static void Log(LogTag tag, string message, Object context) => 
+      Logger.Log(tag, message, context);
 
     public static void LogWarning(string message) =>
       Logger.LogWarning(message);
 
+    public static void LogWarning(string message, Object context) =>
+      Logger.LogWarning(message, context);
+    
     public static void LogWarning(LogTag tag, string message) =>
-      LogManual(LogType.Warning, tag, message);
+      Logger.LogWarning(tag, message);
 
+    public static void LogWarning(LogTag tag, string message, Object context) =>
+      Logger.LogWarning(tag, message, context);
+    
     public static void LogError(string message) =>
       Logger.LogError(message);
 
+    public static void LogError(string message, Object context) =>
+      Logger.LogError(message, context);
+    
     public static void LogError(LogTag tag, string message) =>
-      LogManual(LogType.Error, tag, message);
+      Logger.LogError(tag, message);
 
+    public static void LogError(LogTag tag, string message, Object context) =>
+      Logger.LogError(tag, message, context);
+    
     public static void LogManual(LogType logType, string message) =>
       Logger.LogManual(logType, message);
 
+    public static void LogManual(LogType logType, string message, Object context) =>
+      Logger.LogManual(logType, message, context);
+    
     public static void LogManual(LogType logType, LogTag tag, string message) =>
       Logger.LogManual(logType, tag, message);
+    
+    public static void LogManual(LogType logType, LogTag tag, string message, Object context) =>
+      Logger.LogManual(logType, tag, message, context);
     
     private static void InitializeLogger()
     {
