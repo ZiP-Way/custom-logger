@@ -35,7 +35,7 @@ namespace Logger.Utilities.Configurer
     {
       if (IsTagEnabled(tag))
       {
-        Log.Warning($"Tag `{tag}` already enabled");
+        DLogger.LogWarning($"Tag `{tag}` already enabled");
         return;
       }
 
@@ -46,7 +46,7 @@ namespace Logger.Utilities.Configurer
     {
       if (!IsTagEnabled(tag))
       {
-        Log.Warning($"Tag `{tag}` already disabled");
+        DLogger.LogWarning($"Tag `{tag}` already disabled");
         return;
       }
 

@@ -32,7 +32,7 @@ namespace Logger.Editor.Utilities
 
       if (String.IsNullOrWhiteSpace(assetPath))
       {
-        Log.Error($"Can`t bake tags, path to {nameof(LogTag)} is null or empty");
+        DLogger.LogError($"Can`t bake tags, path to {nameof(LogTag)} is null or empty");
         return;
       }
       

@@ -21,28 +21,28 @@ namespace Logger.Types
       _loggerConfigurer = loggerConfigurer;
     }
 
-    public void Message(string message) =>
-      ManualMessage(LogType.Log, message);
+    public void Log(string message) =>
+      LogManual(LogType.Log, message);
 
-    public void Message(LogTag tag, string message) =>
-      ManualMessage(LogType.Log, tag, message);
+    public void Log(LogTag tag, string message) =>
+      LogManual(LogType.Log, tag, message);
 
-    public void Warning(string message) =>
-      ManualMessage(LogType.Warning, message);
+    public void LogWarning(string message) =>
+      LogManual(LogType.Warning, message);
 
-    public void Warning(LogTag tag, string message) =>
-      ManualMessage(LogType.Warning, tag, message);
+    public void LogWarning(LogTag tag, string message) =>
+      LogManual(LogType.Warning, tag, message);
 
-    public void Error(string message) =>
-      ManualMessage(LogType.Error, message);
+    public void LogError(string message) =>
+      LogManual(LogType.Error, message);
 
-    public void Error(LogTag tag, string message) =>
-      ManualMessage(LogType.Error, tag, message);
+    public void LogError(LogTag tag, string message) =>
+      LogManual(LogType.Error, tag, message);
 
-    public void ManualMessage(LogType logType, string message) =>
+    public void LogManual(LogType logType, string message) =>
       InternalLogger.Log(logType, message);
 
-    public void ManualMessage(LogType logType, LogTag tag, string message)
+    public void LogManual(LogType logType, LogTag tag, string message)
     {
       if (!_loggerConfigurer.IsTagEnabled(tag))
         return;

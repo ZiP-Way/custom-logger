@@ -7,7 +7,7 @@ using ILogger = Logger.Types.ILogger;
 
 namespace Logger
 {
-  public static class Log
+  public static class DLogger
   {
     #region Properties
 
@@ -51,29 +51,29 @@ namespace Logger
     public static bool IsTagEnabled(LogTag tag) =>
       LoggerConfigurer.IsTagEnabled(tag);
 
-    public static void Message(string message) =>
-      Logger.Message(message);
+    public static void Log(string message) =>
+      Logger.Log(message);
 
-    public static void Message(LogTag tag, string message) =>
-      ManualMessage(LogType.Log, tag, message);
+    public static void Log(LogTag tag, string message) =>
+      LogManual(LogType.Log, tag, message);
 
-    public static void Warning(string message) =>
-      Logger.Warning(message);
+    public static void LogWarning(string message) =>
+      Logger.LogWarning(message);
 
-    public static void Warning(LogTag tag, string message) =>
-      ManualMessage(LogType.Warning, tag, message);
+    public static void LogWarning(LogTag tag, string message) =>
+      LogManual(LogType.Warning, tag, message);
 
-    public static void Error(string message) =>
-      Logger.Error(message);
+    public static void LogError(string message) =>
+      Logger.LogError(message);
 
-    public static void Error(LogTag tag, string message) =>
-      ManualMessage(LogType.Error, tag, message);
+    public static void LogError(LogTag tag, string message) =>
+      LogManual(LogType.Error, tag, message);
 
-    public static void ManualMessage(LogType logType, string message) =>
-      Logger.ManualMessage(logType, message);
+    public static void LogManual(LogType logType, string message) =>
+      Logger.LogManual(logType, message);
 
-    public static void ManualMessage(LogType logType, LogTag tag, string message) =>
-      Logger.ManualMessage(logType, tag, message);
+    public static void LogManual(LogType logType, LogTag tag, string message) =>
+      Logger.LogManual(logType, tag, message);
     
     private static void InitializeLogger()
     {
