@@ -51,51 +51,67 @@ namespace Logger
     public static bool IsTagEnabled(LogTag tag) =>
       LoggerConfigurer.IsTagEnabled(tag);
 
+    [HideInCallstack]
     public static void Log(string message) =>
       Logger.Log(message);
 
+    [HideInCallstack]
     public static void Log(string message, Object context) => 
       Logger.Log(message, context);
 
+    [HideInCallstack]
     public static void Log(LogTag tag, string message) => 
       Logger.Log(tag, message);
     
+    [HideInCallstack]
     public static void Log(LogTag tag, string message, Object context) => 
       Logger.Log(tag, message, context);
 
+    [HideInCallstack]
     public static void LogWarning(string message) =>
       Logger.LogWarning(message);
 
+    [HideInCallstack]
     public static void LogWarning(string message, Object context) =>
       Logger.LogWarning(message, context);
     
+    [HideInCallstack]
     public static void LogWarning(LogTag tag, string message) =>
       Logger.LogWarning(tag, message);
 
+    [HideInCallstack]
     public static void LogWarning(LogTag tag, string message, Object context) =>
       Logger.LogWarning(tag, message, context);
     
+    [HideInCallstack]
     public static void LogError(string message) =>
       Logger.LogError(message);
 
+    [HideInCallstack]
     public static void LogError(string message, Object context) =>
       Logger.LogError(message, context);
     
+    [HideInCallstack]
     public static void LogError(LogTag tag, string message) =>
       Logger.LogError(tag, message);
 
+    [HideInCallstack]
     public static void LogError(LogTag tag, string message, Object context) =>
       Logger.LogError(tag, message, context);
     
+    [HideInCallstack]
     public static void LogManual(LogType logType, string message) =>
       Logger.LogManual(logType, message);
 
+    [HideInCallstack]
     public static void LogManual(LogType logType, string message, Object context) =>
       Logger.LogManual(logType, message, context);
     
+    [HideInCallstack]
     public static void LogManual(LogType logType, LogTag tag, string message) =>
       Logger.LogManual(logType, tag, message);
     
+    [HideInCallstack]
     public static void LogManual(LogType logType, LogTag tag, string message, Object context) =>
       Logger.LogManual(logType, tag, message, context);
     
