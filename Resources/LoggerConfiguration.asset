@@ -12,10 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21de6827d4854c72bd8e4c7cc2728502, type: 3}
   m_Name: LoggerConfiguration
   m_EditorClassIdentifier: 
-  _tagsData:
-  - Tag: System
-    IsEnabled: 0
-    BaseColor: {r: 1, g: 1, b: 1, a: 1}
-  - Tag: GameLoop
-    IsEnabled: 1
-    BaseColor: {r: 1, g: 0, b: 0, a: 1}
+  _tagsData: []
